@@ -57,7 +57,7 @@ final class ModelsTestsTests: XCTestCase {
         XCTAssertNotNil(account?.beginDate)
         XCTAssertEqual(account?.category, .checkingAccount)
         XCTAssertEqual(account?.currency, .rur)
-        XCTAssertEqual(account?.id, id)
+        XCTAssertEqual(account?.accountId, id)
         XCTAssertEqual(account?.number, "12345678901234567890")
         XCTAssertEqual(account?.status, .new)
     }

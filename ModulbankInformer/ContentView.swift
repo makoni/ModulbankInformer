@@ -12,10 +12,21 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            List {
+                ForEach(self.apiStore.accounts) { account in
+                    Form {
+                        Label {
+                            Text(account.companyName ?? "")
+                        } icon: {
+                            Image(systemName: "signature")
+                        }
+
+//                        ForEach(account.bankAccounts) { bankAccount in
+//                            
+//                        }
+                    }
+                }
+            }
         }
         .padding()
         .onAppear {

@@ -14,5 +14,9 @@ struct ModulbankInformerApp: App {
         WindowGroup {
             ContentView(apiStore: APIStore())
         }
+
+//        MenuBarExtra("a", systemImage: "m.circle") {
+//            ContentView(apiStore: APIStore())
+//        }
     }
 }

@@ -8,7 +8,6 @@
 import Foundation
 
 struct BankAccount: Codable {
-
     enum Category: String, Codable {
         case checkingAccount = "CheckingAccount"
         case depositAccount = "DepositAccount"
@@ -70,10 +69,27 @@ struct BankAccount: Codable {
     let beginDate: Date?
     let category: Category?
     let currency: Currency?
-    let id: String
+    let accountId: String
     let number: String?
     let transitAccountId: String?
     let status: Status?
+
+    enum CodingKeys: String, CodingKey {
+        case accountName
+        case balance
+        case bankBic
+        case bankInn
+        case bankKpp
+        case bankCorrespondentAccount
+        case bankName
+        case beginDate
+        case category
+        case currency
+        case accountId = "id"
+        case number
+        case transitAccountId
+        case status
+    }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -96,7 +112,7 @@ struct BankAccount: Codable {
 
         self.category = try container.decodeIfPresent(BankAccount.Category.self, forKey: .category)
         self.currency = try container.decodeIfPresent(BankAccount.Currency.self, forKey: .currency)
-        self.id = try container.decode(String.self, forKey: .id)
+        self.accountId = try container.decode(String.self, forKey: .accountId)
         self.number = try container.decodeIfPresent(String.self, forKey: .number)
         self.transitAccountId = try container.decodeIfPresent(String.self, forKey: .transitAccountId)
         self.status = try container.decodeIfPresent(BankAccount.Status.self, forKey: .status)
