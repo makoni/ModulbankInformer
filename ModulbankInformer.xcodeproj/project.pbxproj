@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240F23E529C46D2C00B01778 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 240F23E429C46D2C00B01778 /* KeychainAccess */; };
+		240F23E729C46D4200B01778 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240F23E629C46D4200B01778 /* KeyStore.swift */; };
 		2467A53229C36F76001470A3 /* ModulbankInformerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A53129C36F76001470A3 /* ModulbankInformerApp.swift */; };
 		2467A53429C36F76001470A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A53329C36F76001470A3 /* ContentView.swift */; };
 		2467A53629C36F77001470A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2467A53529C36F77001470A3 /* Assets.xcassets */; };
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		240F23E629C46D4200B01778 /* KeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		2467A52E29C36F76001470A3 /* ModulbankInformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModulbankInformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2467A53129C36F76001470A3 /* ModulbankInformerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulbankInformerApp.swift; sourceTree = "<group>"; };
 		2467A53329C36F76001470A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240F23E529C46D2C00B01778 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +110,7 @@
 				2467A55E29C37125001470A3 /* Models */,
 				2467A53129C36F76001470A3 /* ModulbankInformerApp.swift */,
 				2467A55C29C36F99001470A3 /* APIStore.swift */,
+				240F23E629C46D4200B01778 /* KeyStore.swift */,
 				2467A53329C36F76001470A3 /* ContentView.swift */,
 				2467A53529C36F77001470A3 /* Assets.xcassets */,
 				2467A53A29C36F77001470A3 /* ModulbankInformer.entitlements */,
@@ -164,6 +169,9 @@
 			dependencies = (
 			);
 			name = ModulbankInformer;
+			packageProductDependencies = (
+				240F23E429C46D2C00B01778 /* KeychainAccess */,
+			);
 			productName = ModulbankInformer;
 			productReference = 2467A52E29C36F76001470A3 /* ModulbankInformer.app */;
 			productType = "com.apple.product-type.application";
@@ -236,6 +244,9 @@
 				Base,
 			);
 			mainGroup = 2467A52529C36F76001470A3;
+			packageReferences = (
+				240F23E329C46D2C00B01778 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = 2467A52F29C36F76001470A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2467A55D29C36F99001470A3 /* APIStore.swift in Sources */,
+				240F23E729C46D4200B01778 /* KeyStore.swift in Sources */,
 				2467A56029C3714A001470A3 /* BankAccount.swift in Sources */,
 				2467A56229C377F1001470A3 /* AccountInfo.swift in Sources */,
 				2467A53429C36F76001470A3 /* ContentView.swift in Sources */,
@@ -600,6 +612,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		240F23E329C46D2C00B01778 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		240F23E429C46D2C00B01778 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 240F23E329C46D2C00B01778 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2467A52629C36F76001470A3 /* Project object */;
 }

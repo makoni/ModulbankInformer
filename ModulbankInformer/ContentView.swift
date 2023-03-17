@@ -11,6 +11,7 @@ struct ContentView: View {
     @ObservedObject var apiStore: APIStore
 
     @State var isLoading = true
+    @State var apiKey: String = ""
 
     var body: some View {
         VStack(spacing: 16) {
@@ -34,25 +35,53 @@ struct ContentView: View {
                     }
                 }
             } else {
-                ProgressView()
+                if apiStore.hasAPIKey {
+                    ProgressView()
+                }
             }
 
-            Button("Выход") {
-                exit(0)
+            if !apiStore.hasAPIKey {
+                VStack {
+                    Text("Введите ключ для доступа API")
+                    Text("Ключ будет храниться безопасно и его можно удалить в любой момент")
+                        .font(.caption)
+                    TextField("Введите ключ для доступа API", text: $apiKey, axis: .horizontal)
+                        .onSubmit {
+                            apiStore.setAPIKey(self.apiKey)
+                        }
+                }
+            }
+
+            HStack {
+                if apiStore.hasAPIKey {
+                    Button("Отозвать доступ") {
+                        apiStore.setAPIKey(nil)
+                    }
+                    Spacer()
+                }
+                Button("Выход") {
+                    exit(0)
+                }
             }
         }
         .padding()
         .onAppear {
-            isLoading = true
-            Task {
-                do {
-                    try await apiStore.getAccountInfo()
-                } catch {
-                    print(error)
-                }
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                }
+            if apiStore.hasAPIKey {
+                loadData()
+            }
+        }
+    }
+
+    func loadData() {
+        isLoading = true
+        Task {
+            do {
+                try await apiStore.getAccountInfo()
+            } catch {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.isLoading = false
             }
         }
     }

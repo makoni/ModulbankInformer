@@ -10,8 +10,9 @@ import Foundation
 // API docs: https://api.modulbank.ru
 
 class APIStore: ObservableObject {
-    private let apiKey = ""
+    private let keyStore = KeyStore()
 
+    @Published var hasAPIKey: Bool
     @Published var accounts: [AccountInfo] = []
 
     enum APIError: Error {
@@ -26,12 +27,29 @@ class APIStore: ObservableObject {
 
     init(accounts: [AccountInfo] = []) {
         self.accounts = accounts
+        self.hasAPIKey = keyStore.getAPIKey() != nil
         self.timer = Timer.scheduledTimer(withTimeInterval: 60*5, repeats: true, block: { timer in
             Task {
                 try await self.getAccountInfo()
             }
         })
         self.timer?.fire()
+    }
+
+    func setAPIKey(_ key: String?) {
+        self.hasAPIKey = key != nil
+
+        if key == nil {
+            Task {
+                self.keyStore.saveAPIKey(key)
+            }
+            self.accounts = []
+        } else {
+            Task {
+                self.keyStore.saveAPIKey(key)
+                try await self.getAccountInfo()
+            }
+        }
     }
 
     func getAccountInfo() async throws {
@@ -57,7 +75,10 @@ class APIStore: ObservableObject {
     private func makeRequest(withMethod method: HTTPMethod, fromURL url: URL) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+
+        if let apiKey = keyStore.getAPIKey() {
+            request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        }
         return request
     }
 }
