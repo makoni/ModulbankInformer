@@ -65,14 +65,16 @@ struct BankAccountView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(self.formatBalance(Double.random(in: 1...30000)))
+            // Text(self.formatBalance(Double.random(in: 1...30000)))
+            Text(self.formatBalance(bankAccount.balance))
                 .font(.title)
 
             Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
                 .font(.caption)
 
             if transitBankAccount != nil {
-                let transitBalance = self.formatBalance(Double.random(in: 1...30000))
+                // let transitBalance = self.formatBalance(Double.random(in: 1...30000))
+                let transitBalance = self.formatBalance(transitBankAccount!.balance)
 
                 Label {
                     Text("На транзитном счёте: \(transitBalance)")
