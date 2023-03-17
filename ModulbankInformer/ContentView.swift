@@ -15,28 +15,30 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if !isLoading {
-                List {
-                    ForEach(self.apiStore.accounts) { account in
-                        Form {
-                            Label {
-                                Text(account.companyName ?? "")
-                            } icon: {
-                                Image(systemName: "signature")
-                            }
+                ForEach(self.apiStore.accounts) { account in
+                    Form {
+                        Label {
+                            let string = (account.companyName ?? "").replacingOccurrences(of: "Индивидуальный предприниматель", with: "ИП")
+                            Text("\(string)")
+                        } icon: {
+                            Image(systemName: "signature")
+                        }
+                        .padding(.bottom)
 
+                        VStack(spacing: 8) {
                             ForEach(account.bankAccounts.filter({ $0.category != .transitAccount })) { bankAccount in
-                                VStack {
-                                    BankAccountView(bankAccount: bankAccount)
-                                }
+
+                                BankAccountView(bankAccount: bankAccount, transitBankAccount: account.bankAccounts.first(where: { $0.accountId == bankAccount.transitAccountId }))
                             }
                         }
                     }
                 }
-                .padding()
             } else {
                 ProgressView()
             }
         }
+        .padding()
+        .frame(minWidth: 400, maxWidth: .infinity, minHeight: 200)
         .onAppear {
             isLoading = true
             Task {
@@ -56,6 +58,7 @@ struct ContentView: View {
 
 struct BankAccountView: View {
     @State var bankAccount: BankAccount
+    @State var transitBankAccount: BankAccount?
 
     var body: some View {
         HStack(alignment: .top) {
@@ -63,23 +66,41 @@ struct BankAccountView: View {
                 .font(.largeTitle)
 
             VStack(alignment: .leading) {
-                Text("\(bankAccount.accountName ?? "Счёт")")
-                    .font(.title2)
+                Text(self.formatBalance(bankAccount.balance))
+                    .font(.title)
 
-                Text("\(bankAccount.bankName ?? "")")
+//                let arr = [bankAccount.bankName, bankAccount.number].compactMap({ $0 })
+
+//                Text("\(arr.joined(separator: ", "))")
+//                    .font(.caption)
+
+                Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
                     .font(.caption)
-                Text(bankAccount.number ?? "")
-                    .font(.caption)
+//                Text("\(bankAccount.number ?? "")")
+//                    .font(.caption)
+
+                if transitBankAccount != nil {
+                    let transitBalance = self.formatBalance(transitBankAccount!.balance)
+
+                    Label {
+                        Text("На транзитном счёте: \(transitBalance)")
+                            .font(.caption)
+                    } icon: {
+                        Image(systemName: "arrow.turn.down.right")
+                    }
+                }
             }
 
             Spacer()
 
-            Text(self.formatBalance(bankAccount.balance))
-                .font(.title)
-                .padding(4)
-                .background(Color("BlueColor"))
-                .cornerRadius(14)
-                .foregroundColor(.white)
+
+//
+//            Text(self.formatBalance(bankAccount.balance))
+//                .font(.title3)
+//                .padding(6)
+//                .background(Color("BlueColor"))
+//                .cornerRadius(20)
+//                .foregroundColor(.white)
         }
     }
 
@@ -118,7 +139,8 @@ struct ContentView_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            BankAccountView(bankAccount: try! JSONDecoder().decode(BankAccount.self, from: accData))
+            let acc = try! JSONDecoder().decode(BankAccount.self, from: accData)
+            BankAccountView(bankAccount: acc, transitBankAccount: acc)
             BankAccountView(bankAccount: try! JSONDecoder().decode(BankAccount.self, from: accData))
             BankAccountView(bankAccount: try! JSONDecoder().decode(BankAccount.self, from: accData))
         }
