@@ -42,7 +42,6 @@ struct ContentView: View {
             }
         }
         .padding()
-        .frame(minWidth: 200, maxWidth: .infinity, minHeight: 200)
         .onAppear {
             isLoading = true
             Task {
