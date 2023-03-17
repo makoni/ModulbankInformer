@@ -13,7 +13,7 @@ struct ContentView: View {
     @State var isLoading = true
 
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             if !isLoading {
                 ForEach(self.apiStore.accounts) { account in
                     Form {
@@ -35,6 +35,10 @@ struct ContentView: View {
                 }
             } else {
                 ProgressView()
+            }
+
+            Button("Выход") {
+                exit(0)
             }
         }
         .padding()
@@ -64,13 +68,13 @@ struct BankAccountView: View {
         VStack(alignment: .leading) {
             Text(self.formatBalance(Double.random(in: 1...30000)))
                 .font(.title)
-            
+
             Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
                 .font(.caption)
-            
+
             if transitBankAccount != nil {
                 let transitBalance = self.formatBalance(Double.random(in: 1...30000))
-                
+
                 Label {
                     Text("На транзитном счёте: \(transitBalance)")
                         .font(.caption)
