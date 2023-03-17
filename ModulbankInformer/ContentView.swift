@@ -38,7 +38,7 @@ struct ContentView: View {
             }
         }
         .padding()
-        .frame(minWidth: 400, maxWidth: .infinity, minHeight: 200)
+        .frame(minWidth: 200, maxWidth: .infinity, minHeight: 200)
         .onAppear {
             isLoading = true
             Task {
@@ -69,15 +69,8 @@ struct BankAccountView: View {
                 Text(self.formatBalance(bankAccount.balance))
                     .font(.title)
 
-//                let arr = [bankAccount.bankName, bankAccount.number].compactMap({ $0 })
-
-//                Text("\(arr.joined(separator: ", "))")
-//                    .font(.caption)
-
                 Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
                     .font(.caption)
-//                Text("\(bankAccount.number ?? "")")
-//                    .font(.caption)
 
                 if transitBankAccount != nil {
                     let transitBalance = self.formatBalance(transitBankAccount!.balance)
@@ -90,17 +83,6 @@ struct BankAccountView: View {
                     }
                 }
             }
-
-            Spacer()
-
-
-//
-//            Text(self.formatBalance(bankAccount.balance))
-//                .font(.title3)
-//                .padding(6)
-//                .background(Color("BlueColor"))
-//                .cornerRadius(20)
-//                .foregroundColor(.white)
         }
     }
 
