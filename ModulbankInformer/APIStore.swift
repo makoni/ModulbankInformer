@@ -47,7 +47,6 @@ class APIStore: ObservableObject {
         } else {
             Task {
                 self.keyStore.saveAPIKey(key)
-                try await self.getAccountInfo()
             }
         }
     }

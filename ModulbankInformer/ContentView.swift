@@ -48,6 +48,7 @@ struct ContentView: View {
                     TextField("Введите ключ для доступа API", text: $apiKey, axis: .horizontal)
                         .onSubmit {
                             apiStore.setAPIKey(self.apiKey)
+                            self.loadData()
                         }
                 }
             }
