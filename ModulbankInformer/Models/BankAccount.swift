@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BankAccount: Codable {
+struct BankAccount: Codable, Identifiable {
     enum Category: String, Codable {
         case checkingAccount = "CheckingAccount"
         case depositAccount = "DepositAccount"
@@ -31,6 +31,68 @@ struct BankAccount: Codable {
         case uzs = "UZS"
         case `try` = "TYR"
         case kgs = "KGS"
+
+        var imageName: String {
+            switch self {
+            case .rur:
+                return "rublesign.square"
+            case .usd:
+                return "dollarsign.square"
+            case .eur:
+                return "eurosign.square"
+            case .cny:
+                return "yensign.square"
+            case .kzt:
+                return "tengesign.square"
+            case .amd:
+                return "banknote"
+            case .azn:
+                return "banknote"
+            case .gel:
+                return "banknote"
+            case .byn:
+                return "banknote"
+            case .tjs:
+                return "banknote"
+            case .uzs:
+                return "banknote"
+            case .try:
+                return "turkishlirasign.square"
+            case .kgs:
+                return "banknote"
+            }
+        }
+
+        var currencySymbol: String {
+            switch self {
+            case .rur:
+                return "₽"
+            case .usd:
+                return "$"
+            case .eur:
+                return "€"
+            case .cny:
+                return "¥"
+            case .kzt:
+                return "₸"
+            case .amd:
+                return "AMD"
+            case .azn:
+                return "banknote"
+            case .gel:
+                return "banknote"
+            case .byn:
+                return "banknote"
+            case .tjs:
+                return "banknote"
+            case .uzs:
+                return "banknote"
+            case .try:
+                return "turkishlirasign.square"
+            case .kgs:
+                return "banknote"
+            }
+        }
     }
 
     enum Status: String, Codable {
@@ -59,6 +121,7 @@ struct BankAccount: Codable {
         }
     }
 
+    let id = UUID()
     let accountName: String?
     let balance: Double
     let bankBic: String?

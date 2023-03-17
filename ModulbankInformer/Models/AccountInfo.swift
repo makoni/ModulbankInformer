@@ -8,7 +8,7 @@
 import Foundation
 
 struct AccountInfo: Codable, Identifiable {
-    var id = NSUUID()
+    let id = NSUUID()
 
     let companyId: String
     let companyName: String?
