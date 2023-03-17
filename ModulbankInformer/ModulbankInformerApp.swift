@@ -11,17 +11,14 @@ import SwiftUI
 @main
 struct ModulbankInformerApp: App {
     var body: some Scene {
-//        WindowGroup {
-//            ContentView(apiStore: APIStore())
-//        }
-
         MenuBarExtra {
             ContentView(apiStore: APIStore())
         } label: {
-            Image(systemName: "m.square.fill")
-                .font(.system(size: 72))
+            let configuration = NSImage.SymbolConfiguration(pointSize: 16, weight: .light)
+                let image = NSImage(systemSymbolName: "m.circle.fill", accessibilityDescription: nil)
+                let updateImage = image?.withSymbolConfiguration(configuration)
+                Image(nsImage: updateImage!)
         }
         .menuBarExtraStyle(.window)
-
     }
 }
