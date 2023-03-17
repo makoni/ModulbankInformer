@@ -21,6 +21,18 @@ class APIStore: ObservableObject {
         case GET, POST, PUT, DELETE
     }
 
+    var timer: Timer?
+
+    init(accounts: [AccountInfo] = []) {
+        self.accounts = accounts
+        self.timer = Timer.scheduledTimer(withTimeInterval: 60*5, repeats: true, block: { timer in
+            Task {
+                try await self.getAccountInfo()
+            }
+        })
+        self.timer?.fire()
+    }
+
     func getAccountInfo() async throws {
         let decoder = JSONDecoder()
 
