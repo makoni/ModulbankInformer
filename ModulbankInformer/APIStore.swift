@@ -7,6 +7,7 @@
 
 import Foundation
 
+// API docs: https://api.modulbank.ru
 
 class APIStore: ObservableObject {
     private let apiKey = ""
