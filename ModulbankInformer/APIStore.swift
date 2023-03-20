@@ -52,6 +52,11 @@ class APIStore: ObservableObject {
     }
 
     func getAccountInfo() async throws {
+        guard keyStore.getAPIKey() != nil else {
+            setAPIKey(nil)
+            return
+        }
+
         let decoder = JSONDecoder()
 
         var components = URLComponents()
