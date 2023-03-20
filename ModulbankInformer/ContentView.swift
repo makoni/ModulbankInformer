@@ -22,6 +22,7 @@ struct ContentView: View {
                         Label {
                             let string = (account.companyName ?? "").replacingOccurrences(of: "Индивидуальный предприниматель", with: "ИП")
                             Text("\(string)")
+//                            Text("ИП Иванов Иван Иванович")
                         } icon: {
                             Image(systemName: "signature")
                         }
@@ -62,13 +63,14 @@ struct ContentView: View {
                         apiStore.setAPIKey(nil)
                     }
                     Spacer()
-                }
-                Button {
-                    if let url = URL(string: "https://my.modulbank.ru") {
-                        openURL(url)
+                } else {
+                    Button {
+                        if let url = URL(string: "https://my.modulbank.ru") {
+                            openURL(url)
+                        }
+                    } label: {
+                        Text("Открыть ЛК")
                     }
-                } label: {
-                    Text("Открыть ЛК")
                 }
 
                 Button("Выход") {
@@ -106,15 +108,18 @@ struct BankAccountView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            // Text(self.formatBalance(Double.random(in: 1...30000)))
+//            Text(self.formatBalance(Double.random(in: 1...30000)))
             Text(self.formatBalance(bankAccount.balance))
                 .font(.title)
 
+
             Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
+//            let randomStr = generateRandomAccountNumber()
+//            Text("\(bankAccount.accountName ?? "Счёт") \(randomStr)")
                 .font(.caption)
 
             if transitBankAccount != nil {
-                // let transitBalance = self.formatBalance(Double.random(in: 1...30000))
+//                let transitBalance = self.formatBalance(Double.random(in: 1...30000))
                 let transitBalance = self.formatBalance(transitBankAccount!.balance)
 
                 Label {
@@ -125,6 +130,16 @@ struct BankAccountView: View {
                 }
             }
         }
+    }
+
+    func generateRandomAccountNumber() -> String {
+        let randomNumber = Double.random(in: 10801000000000000000...10802000000000000000)
+
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 0
+        let number = NSNumber(value: randomNumber)
+
+        return formatter.string(from: number) ?? ""
     }
 
     func formatBalance(_ balance: Double) -> String {
