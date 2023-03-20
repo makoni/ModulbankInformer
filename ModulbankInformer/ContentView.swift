@@ -12,6 +12,7 @@ struct ContentView: View {
 
     @State var isLoading = true
     @State var apiKey: String = ""
+    @Environment(\.openURL) private var openURL
 
     var body: some View {
         VStack(spacing: 16) {
@@ -41,9 +42,11 @@ struct ContentView: View {
             }
 
             if !apiStore.hasAPIKey {
-                VStack {
+                VStack(spacing: 8) {
                     Text("Введите ключ для доступа API")
-                    Text("Ключ будет храниться безопасно и его можно удалить в любой момент")
+                    Text("Сгенерировать его в ЛК Модульбанка")
+                        .font(.caption)
+                    Text("Ключ будет храниться безопасно \nи его можно удалить в любой момент")
                         .font(.caption)
                     TextField("Введите ключ для доступа API", text: $apiKey, axis: .horizontal)
                         .onSubmit {
@@ -60,6 +63,14 @@ struct ContentView: View {
                     }
                     Spacer()
                 }
+                Button {
+                    if let url = URL(string: "https://my.modulbank.ru") {
+                        openURL(url)
+                    }
+                } label: {
+                    Text("Открыть ЛК")
+                }
+
                 Button("Выход") {
                     exit(0)
                 }
