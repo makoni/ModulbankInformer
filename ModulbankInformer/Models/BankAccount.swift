@@ -76,21 +76,21 @@ struct BankAccount: Codable, Identifiable {
             case .kzt:
                 return "₸"
             case .amd:
-                return "AMD"
+                return "֏"
             case .azn:
-                return "banknote"
+                return "₼"
             case .gel:
-                return "banknote"
+                return "ლ"
             case .byn:
-                return "banknote"
+                return "Br"
             case .tjs:
-                return "banknote"
+                return self.rawValue
             case .uzs:
-                return "banknote"
+                return self.rawValue
             case .try:
-                return "turkishlirasign.square"
+                return "₺"
             case .kgs:
-                return "banknote"
+                return self.rawValue
             }
         }
     }
