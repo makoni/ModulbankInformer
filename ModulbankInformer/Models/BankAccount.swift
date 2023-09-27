@@ -29,7 +29,7 @@ struct BankAccount: Codable, Identifiable {
         case byn = "BYN"
         case tjs = "TJS"
         case uzs = "UZS"
-        case `try` = "TYR"
+        case `try` = "TRY"
         case kgs = "KGS"
 
         var imageName: String {
