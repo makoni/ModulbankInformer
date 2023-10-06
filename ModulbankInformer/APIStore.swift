@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import OSLog
+
+private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "APIStore")
 
 // API docs: https://api.modulbank.ru
 
@@ -30,10 +33,13 @@ class APIStore: ObservableObject {
         self.hasAPIKey = keyStore.getAPIKey() != nil
         self.timer = Timer.scheduledTimer(withTimeInterval: 60*5, repeats: true, block: { timer in
             Task {
-                try await self.getAccountInfo()
+				do {
+					try await self.getAccountInfo()
+				} catch {
+					logger.error("\(String(describing: error), privacy: .public)")
+				}
             }
         })
-        self.timer?.fire()
     }
 
     func setAPIKey(_ key: String?) {
@@ -68,12 +74,13 @@ class APIStore: ObservableObject {
             throw APIError.badURL
         }
 
+		logger.info("Getting data")
         let request = makeRequest(withMethod: .POST, fromURL: url)
         let (data, _) = try await URLSession.shared.data(for: request)
         let response = try decoder.decode([AccountInfo].self, from: data)
-        DispatchQueue.main.async { [weak self] in
-            self?.accounts = response
-        }
+		await MainActor.run {
+			self.accounts = response
+		}
     }
 
     private func makeRequest(withMethod method: HTTPMethod, fromURL url: URL) -> URLRequest {

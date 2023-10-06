@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import OSLog
+
+private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ContentView")
 
 struct ContentView: View {
     @ObservedObject var apiStore: APIStore
@@ -92,11 +95,12 @@ struct ContentView: View {
             do {
                 try await apiStore.getAccountInfo()
             } catch {
-                print(error)
+				logger.error("\(String(describing: error), privacy: .public)")
             }
-            DispatchQueue.main.async {
-                self.isLoading = false
-            }
+
+			await MainActor.run {
+				self.isLoading = false
+			}
         }
     }
 }
