@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct ModulbankInformerApp: App {
-    var body: some Scene {
+	var body: some Scene {
 		MenuBarExtra {
 			ContentView(apiStore: APIStore())
 		} label: {
@@ -19,6 +19,6 @@ struct ModulbankInformerApp: App {
 			let updateImage = image.withSymbolConfiguration(configuration)
 			Image(nsImage: updateImage!)
 		}
-        .menuBarExtraStyle(.window)
-    }
+		.menuBarExtraStyle(.window)
+	}
 }
