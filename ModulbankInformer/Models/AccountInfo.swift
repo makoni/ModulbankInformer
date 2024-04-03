@@ -18,6 +18,21 @@ struct AccountInfo: Codable, Identifiable {
     let Kpp: String?
     let Ogrn: String?
 
+	var shortenCompanyName: String {
+		(companyName ?? "").replacingOccurrences(of: "Индивидуальный предприниматель", with: "ИП")
+	}
+
+	func nonTransitAccounts(hideZeros: Bool) -> [BankAccount] {
+		let accounts = bankAccounts.filter({ $0.category != .transitAccount })
+
+		if !hideZeros { return accounts }
+
+		return accounts.filter { bankAccount in
+			let transitAccountBalance = accounts.first(where: { $0.accountId == bankAccount.transitAccountId })?.balance ?? 0
+			return bankAccount.balance > 0 || transitAccountBalance > 0
+		}
+	}
+
     enum CodingKeys: CodingKey {
         case companyId
         case companyName

@@ -11,32 +11,38 @@ import OSLog
 private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ContentView")
 
 struct ContentView: View {
+	@Environment(\.openURL) private var openURL
+
+	@AppStorage("hideZeros") private var hideZeros = false
+
     @ObservedObject var apiStore: APIStore
 
-    @State var isLoading = true
-    @State var apiKey: String = ""
-    @Environment(\.openURL) private var openURL
+    @State private var isLoading = true
+    @State private var apiKey: String = ""
 
     var body: some View {
-        VStack(spacing: 16) {
+		VStack(spacing: 16) {
             if !isLoading {
                 ForEach(self.apiStore.accounts) { account in
                     Form {
                         Label {
-                            let string = (account.companyName ?? "").replacingOccurrences(of: "Индивидуальный предприниматель", with: "ИП")
-                            Text("\(string)")
+							Text("\(account.shortenCompanyName)")
 //                            Text("ИП Иванов Иван Иванович")
-                        } icon: {
-                            Image(systemName: "signature")
-                        }
+                        } icon: { Image(systemName: "signature") }
                         .padding(.bottom)
 
-                        VStack(spacing: 8) {
-                            ForEach(account.bankAccounts.filter({ $0.category != .transitAccount })) { bankAccount in
 
-                                BankAccountView(bankAccount: bankAccount, transitBankAccount: account.bankAccounts.first(where: { $0.accountId == bankAccount.transitAccountId }))
+                        VStack(spacing: 8) {
+							ForEach(account.nonTransitAccounts(hideZeros: hideZeros)) { bankAccount in
+                                BankAccountView(
+									bankAccount: bankAccount,
+									transitBankAccount: account.bankAccounts.first(where: { $0.accountId == bankAccount.transitAccountId })
+								)
                             }
-                        }
+						}
+
+						Toggle("Скрыть с нулевым балансом", isOn: $hideZeros)
+							.padding([.top, .bottom])
                     }
                 }
             } else {
