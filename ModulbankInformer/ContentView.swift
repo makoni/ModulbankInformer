@@ -73,21 +73,21 @@ struct ContentView: View {
 
             HStack {
                 if apiStore.hasAPIKey {
-                    Button("Отозвать доступ") {
-                        apiStore.setAPIKey(nil)
-                    }
+					Button {
+						apiStore.setAPIKey(nil)
+					} label: {
+						Text("Отозвать доступ")
+					}
                     Spacer()
                 } else {
                     Button {
-                        if let url = URL(string: "https://my.modulbank.ru") {
-                            openURL(url)
-                        }
-                    } label: {
-                        Text("Открыть ЛК")
-                    }
+						openURL(URL(string: "https://my.modulbank.ru")!)
+					} label: {
+						Text("Открыть ЛК")
+					}
                 }
 
-                Button("Выход") { exit(0) }
+				Button { exit(0) } label: { Text("Выход") }
             }
         }
         .padding()
