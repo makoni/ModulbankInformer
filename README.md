@@ -1,6 +1,6 @@
 # ModulbankInformer
 
-<img src="https://spaceinbox.me/images/modulbank-informer.png">
+<img src="https://spaceinbox.me/images/modulbank-informer.webp">
 
 [![Platforms](https://img.shields.io/badge/platforms-macOS%2013-ff0000.svg?style=flat)](https://github.com/makoni/ModulbankInformer) [![Swift 5](https://img.shields.io/badge/swift-5.9-orange.svg?style=flat)](http://swift.org) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/makoni/ModulbankInformer/total)
 
