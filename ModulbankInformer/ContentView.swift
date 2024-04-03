@@ -18,8 +18,8 @@ struct AccountsListView: View {
 		ForEach(accounts) { account in
 			Form {
 				Label {
-//							Text("\(account.shortenCompanyName)")
-					Text("ИП Иванов Иван Иванович")
+					Text("\(account.shortenCompanyName)")
+//					Text("ИП Иванов Иван Иванович")
 				} icon: { Image(systemName: "signature") }
 				.padding(.bottom)
 
