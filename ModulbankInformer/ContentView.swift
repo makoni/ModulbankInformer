@@ -21,7 +21,8 @@ struct AccountsListView: View {
 					Text("\(account.shortenCompanyName)")
 //					Text("ИП Иванов Иван Иванович")
 				} icon: { Image(systemName: "signature") }
-				.padding(.bottom)
+					.frame(maxWidth: .infinity)
+					.padding(.bottom)
 
 
 				VStack(spacing: 8) {
