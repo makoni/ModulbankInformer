@@ -55,7 +55,7 @@ struct ContentView: View {
                     TextField("Введите ключ для доступа API", text: $apiKey, axis: .horizontal)
                         .onSubmit {
                             apiStore.setAPIKey(self.apiKey)
-                            self.loadData()
+							Task { await self.loadData() }
                         }
                 }
             }
@@ -76,32 +76,29 @@ struct ContentView: View {
                     }
                 }
 
-                Button("Выход") {
-                    exit(0)
-                }
+                Button("Выход") { exit(0) }
             }
         }
         .padding()
-        .onAppear {
-            if apiStore.hasAPIKey {
-                loadData()
-            }
-        }
+		.task { await loadData() }
     }
 
-    func loadData() {
-        isLoading = true
-        Task {
-            do {
-                try await apiStore.getAccountInfo()
-            } catch {
-				logger.error("\(String(describing: error), privacy: .public)")
-            }
+    func loadData() async {
+		guard apiStore.hasAPIKey else { return }
+		
+		await MainActor.run {
+			isLoading = true
+		}
 
-			await MainActor.run {
-				self.isLoading = false
-			}
-        }
+		do {
+			try await apiStore.getAccountInfo()
+		} catch {
+			logger.error("\(String(describing: error), privacy: .public)")
+		}
+
+		await MainActor.run {
+			isLoading = false
+		}
     }
 }
 
