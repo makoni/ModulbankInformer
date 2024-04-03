@@ -10,10 +10,38 @@ import OSLog
 
 private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ContentView")
 
+struct AccountsListView: View {
+	@AppStorage("hideZeros") private var hideZeros = false
+	var accounts:  [AccountInfo]
+
+	var body: some View {
+		ForEach(accounts) { account in
+			Form {
+				Label {
+//							Text("\(account.shortenCompanyName)")
+					Text("ИП Иванов Иван Иванович")
+				} icon: { Image(systemName: "signature") }
+				.padding(.bottom)
+
+
+				VStack(spacing: 8) {
+					ForEach(account.nonTransitAccounts(hideZeros: hideZeros)) { bankAccount in
+						BankAccountView(
+							bankAccount: bankAccount,
+							transitBankAccount: account.bankAccounts.first(where: { $0.accountId == bankAccount.transitAccountId })
+						)
+					}
+				}
+
+				Toggle("Скрыть с нулевым балансом", isOn: $hideZeros)
+					.padding([.top, .bottom])
+			}
+		}
+	}
+}
+
 struct ContentView: View {
 	@Environment(\.openURL) private var openURL
-
-	@AppStorage("hideZeros") private var hideZeros = false
 
     @ObservedObject var apiStore: APIStore
 
@@ -23,32 +51,9 @@ struct ContentView: View {
     var body: some View {
 		VStack(spacing: 16) {
             if !isLoading {
-                ForEach(self.apiStore.accounts) { account in
-                    Form {
-                        Label {
-							Text("\(account.shortenCompanyName)")
-//                            Text("ИП Иванов Иван Иванович")
-                        } icon: { Image(systemName: "signature") }
-                        .padding(.bottom)
-
-
-                        VStack(spacing: 8) {
-							ForEach(account.nonTransitAccounts(hideZeros: hideZeros)) { bankAccount in
-                                BankAccountView(
-									bankAccount: bankAccount,
-									transitBankAccount: account.bankAccounts.first(where: { $0.accountId == bankAccount.transitAccountId })
-								)
-                            }
-						}
-
-						Toggle("Скрыть с нулевым балансом", isOn: $hideZeros)
-							.padding([.top, .bottom])
-                    }
-                }
-            } else {
-                if apiStore.hasAPIKey {
-                    ProgressView()
-                }
+				AccountsListView(accounts: apiStore.accounts)
+            } else if apiStore.hasAPIKey {
+				ProgressView()
             }
 
             if !apiStore.hasAPIKey {
@@ -60,8 +65,8 @@ struct ContentView: View {
                         .font(.caption)
                     TextField("Введите ключ для доступа API", text: $apiKey, axis: .horizontal)
                         .onSubmit {
-                            apiStore.setAPIKey(self.apiKey)
-							Task { await self.loadData() }
+                            apiStore.setAPIKey(apiKey)
+							Task { await loadData() }
                         }
                 }
             }
@@ -116,7 +121,7 @@ struct BankAccountView: View {
     var body: some View {
         VStack(alignment: .leading) {
 //            Text(self.formatBalance(Double.random(in: 1...30000)))
-            Text(self.formatBalance(bankAccount.balance))
+            Text(formatBalance(bankAccount.balance))
                 .font(.title)
 
 
@@ -127,7 +132,7 @@ struct BankAccountView: View {
 
             if transitBankAccount != nil {
 //                let transitBalance = self.formatBalance(Double.random(in: 1...30000))
-                let transitBalance = self.formatBalance(transitBankAccount!.balance)
+                let transitBalance = formatBalance(transitBankAccount!.balance)
 
                 Label {
                     Text("На транзитном счёте: \(transitBalance)")
