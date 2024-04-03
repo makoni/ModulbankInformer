@@ -21,7 +21,6 @@ struct AccountsListView: View {
 					Text("\(account.shortenCompanyName)")
 //					Text("ИП Иванов Иван Иванович")
 				} icon: { Image(systemName: "signature") }
-					.frame(maxWidth: .infinity)
 					.padding(.bottom)
 
 
@@ -78,8 +77,7 @@ struct ContentView: View {
 						apiStore.setAPIKey(nil)
 					} label: {
 						Text("Отозвать доступ")
-					}
-					Spacer()
+					}.padding(.trailing)
 				} else {
 					Button {
 						openURL(URL(string: "https://my.modulbank.ru")!)
