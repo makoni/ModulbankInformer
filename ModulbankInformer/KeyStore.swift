@@ -8,7 +8,7 @@
 import Foundation
 import KeychainAccess
 
-class KeyStore {
+final class KeyStore {
     private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
 
     func getAPIKey() -> String? {

@@ -12,7 +12,7 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 
 // API docs: https://api.modulbank.ru
 
-class APIStore: ObservableObject {
+final class APIStore: ObservableObject {
     private let keyStore = KeyStore()
 
     @Published var hasAPIKey: Bool
