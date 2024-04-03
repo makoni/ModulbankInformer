@@ -14,7 +14,7 @@ struct ModulbankInformerApp: App {
 		MenuBarExtra {
 			ContentView(apiStore: APIStore())
 		} label: {
-			let configuration = NSImage.SymbolConfiguration(pointSize: 20, weight: .bold)
+			let configuration = NSImage.SymbolConfiguration(pointSize: 16, weight: .bold)
 			let image = NSImage.modulicon
 			let updateImage = image.withSymbolConfiguration(configuration)
 			Image(nsImage: updateImage!)
