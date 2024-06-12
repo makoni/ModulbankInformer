@@ -458,7 +458,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModulbankInformer/ModulbankInformer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ModulbankInformer/Preview Content\"";
 				DEVELOPMENT_TEAM = 345VKAJA5N;
@@ -490,7 +490,7 @@
 				CODE_SIGN_ENTITLEMENTS = ModulbankInformer/ModulbankInformer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ModulbankInformer/Preview Content\"";
 				DEVELOPMENT_TEAM = 345VKAJA5N;

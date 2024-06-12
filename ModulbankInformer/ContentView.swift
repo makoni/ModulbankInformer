@@ -24,7 +24,7 @@ struct AccountsListView: View {
 					.padding(.bottom)
 
 
-				VStack(spacing: 8) {
+				VStack(alignment: .leading, spacing: 8) {
 					ForEach(account.nonTransitAccounts(hideZeros: hideZeros)) { bankAccount in
 						BankAccountView(
 							bankAccount: bankAccount,
@@ -184,6 +184,21 @@ let accData = """
 			 "id": "\(NSUUID().uuidString)",
 			 "number": "12345678901234567890",
 			 "status": "New"
+		},
+		{
+		   "accountName": "Депозит",
+		   "balance": 4917.7600,
+		   "bankBic": "044525092",
+		   "bankInn": "2204000595",
+		   "bankKpp": "771543001",
+		   "bankCorrespondentAccount": "30101810645250000092",
+		   "bankName": "МОСКОВСКИЙ ФИЛИАЛ АО КБ МОДУЛЬБАНК",
+		   "beginDate": "2021-02-09T00:00:00",
+		   "category": "CheckingAccount",
+		   "currency": "RUR",
+		   "id": "\(NSUUID().uuidString)",
+		   "number": "12345678901234567890",
+		   "status": "New"
 		}
 	],
 	"registrationCompleted": true
