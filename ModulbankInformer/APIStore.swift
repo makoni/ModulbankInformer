@@ -12,6 +12,7 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 
 // API docs: https://api.modulbank.ru
 
+@MainActor
 final class APIStore: ObservableObject {
 	private let keyStore = KeyStore()
 
@@ -26,7 +27,7 @@ final class APIStore: ObservableObject {
 		case GET, POST, PUT, DELETE
 	}
 
-	var timer: Timer?
+	private var timer: Timer?
 
 	init(accounts: [AccountInfo] = []) {
 		self.accounts = accounts

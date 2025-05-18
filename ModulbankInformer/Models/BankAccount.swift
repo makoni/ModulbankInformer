@@ -157,27 +157,27 @@ struct BankAccount: Codable, Identifiable {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 
-		self.accountName = try container.decodeIfPresent(String.self, forKey: .accountName)
-		self.balance = try container.decodeIfPresent(Double.self, forKey: .balance) ?? 0
-		self.bankBic = try container.decodeIfPresent(String.self, forKey: .bankBic)
-		self.bankInn = try container.decodeIfPresent(String.self, forKey: .bankInn)
-		self.bankKpp = try container.decodeIfPresent(String.self, forKey: .bankKpp)
-		self.bankCorrespondentAccount = try container.decodeIfPresent(String.self, forKey: .bankCorrespondentAccount)
-		self.bankName = try container.decodeIfPresent(String.self, forKey: .bankName)
+		accountName = try container.decodeIfPresent(String.self, forKey: .accountName)
+		balance = try container.decodeIfPresent(Double.self, forKey: .balance) ?? 0
+		bankBic = try container.decodeIfPresent(String.self, forKey: .bankBic)
+		bankInn = try container.decodeIfPresent(String.self, forKey: .bankInn)
+		bankKpp = try container.decodeIfPresent(String.self, forKey: .bankKpp)
+		bankCorrespondentAccount = try container.decodeIfPresent(String.self, forKey: .bankCorrespondentAccount)
+		bankName = try container.decodeIfPresent(String.self, forKey: .bankName)
 
 		if let dateString =  try container.decodeIfPresent(String.self, forKey: .beginDate) {
 			let dateFormatter = DateFormatter()
 			dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-			self.beginDate = dateFormatter.date(from: dateString)
+			beginDate = dateFormatter.date(from: dateString)
 		} else {
-			self.beginDate = nil
+			beginDate = nil
 		}
 
-		self.category = try container.decodeIfPresent(BankAccount.Category.self, forKey: .category)
-		self.currency = try container.decodeIfPresent(BankAccount.Currency.self, forKey: .currency)
-		self.accountId = try container.decode(String.self, forKey: .accountId)
-		self.number = try container.decodeIfPresent(String.self, forKey: .number)
-		self.transitAccountId = try container.decodeIfPresent(String.self, forKey: .transitAccountId)
-		self.status = try container.decodeIfPresent(BankAccount.Status.self, forKey: .status)
+		category = try container.decodeIfPresent(BankAccount.Category.self, forKey: .category)
+		currency = try container.decodeIfPresent(BankAccount.Currency.self, forKey: .currency)
+		accountId = try container.decode(String.self, forKey: .accountId)
+		number = try container.decodeIfPresent(String.self, forKey: .number)
+		transitAccountId = try container.decodeIfPresent(String.self, forKey: .transitAccountId)
+		status = try container.decodeIfPresent(BankAccount.Status.self, forKey: .status)
 	}
 }
