@@ -3,22 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		240F23E529C46D2C00B01778 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 240F23E429C46D2C00B01778 /* KeychainAccess */; };
-		240F23E729C46D4200B01778 /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240F23E629C46D4200B01778 /* KeyStore.swift */; };
-		2467A53229C36F76001470A3 /* ModulbankInformerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A53129C36F76001470A3 /* ModulbankInformerApp.swift */; };
-		2467A53429C36F76001470A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A53329C36F76001470A3 /* ContentView.swift */; };
-		2467A53629C36F77001470A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2467A53529C36F77001470A3 /* Assets.xcassets */; };
-		2467A53929C36F77001470A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2467A53829C36F77001470A3 /* Preview Assets.xcassets */; };
-		2467A54429C36F77001470A3 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A54329C36F77001470A3 /* ModelsTests.swift */; };
-		2467A54E29C36F77001470A3 /* ModulbankInformerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A54D29C36F77001470A3 /* ModulbankInformerUITests.swift */; };
-		2467A55029C36F77001470A3 /* ModulbankInformerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A54F29C36F77001470A3 /* ModulbankInformerUITestsLaunchTests.swift */; };
-		2467A55D29C36F99001470A3 /* APIStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A55C29C36F99001470A3 /* APIStore.swift */; };
-		2467A56029C3714A001470A3 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A55F29C3714A001470A3 /* BankAccount.swift */; };
-		2467A56229C377F1001470A3 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467A56129C377F1001470A3 /* AccountInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,46 +28,58 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		240F23E629C46D4200B01778 /* KeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		2467A52E29C36F76001470A3 /* ModulbankInformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModulbankInformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2467A53129C36F76001470A3 /* ModulbankInformerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulbankInformerApp.swift; sourceTree = "<group>"; };
-		2467A53329C36F76001470A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2467A53529C36F77001470A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2467A53829C36F77001470A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2467A53A29C36F77001470A3 /* ModulbankInformer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ModulbankInformer.entitlements; sourceTree = "<group>"; };
 		2467A53F29C36F77001470A3 /* ModulbankInformerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModulbankInformerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2467A54329C36F77001470A3 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
 		2467A54929C36F77001470A3 /* ModulbankInformerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModulbankInformerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2467A54D29C36F77001470A3 /* ModulbankInformerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulbankInformerUITests.swift; sourceTree = "<group>"; };
-		2467A54F29C36F77001470A3 /* ModulbankInformerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulbankInformerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2467A55C29C36F99001470A3 /* APIStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStore.swift; sourceTree = "<group>"; };
-		2467A55F29C3714A001470A3 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
-		2467A56129C377F1001470A3 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
-		2467A56329C380DB001470A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		24B3B04E2DDA2283008710FD /* Exceptions for "ModulbankInformer" folder in "ModulbankInformer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2467A52D29C36F76001470A3 /* ModulbankInformer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		24B3B0442DDA2283008710FD /* ModulbankInformer */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				24B3B04E2DDA2283008710FD /* Exceptions for "ModulbankInformer" folder in "ModulbankInformer" target */,
+			);
+			path = ModulbankInformer;
+			sourceTree = "<group>";
+		};
+		24B3B0502DDA2288008710FD /* ModulbankInformerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ModulbankInformerTests;
+			sourceTree = "<group>";
+		};
+		24B3B0542DDA228A008710FD /* ModulbankInformerUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ModulbankInformerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2467A52B29C36F76001470A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				240F23E529C46D2C00B01778 /* KeychainAccess in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2467A53C29C36F77001470A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2467A54629C36F77001470A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -86,9 +87,9 @@
 		2467A52529C36F76001470A3 = {
 			isa = PBXGroup;
 			children = (
-				2467A53029C36F76001470A3 /* ModulbankInformer */,
-				2467A54229C36F77001470A3 /* ModulbankInformerTests */,
-				2467A54C29C36F77001470A3 /* ModulbankInformerUITests */,
+				24B3B0442DDA2283008710FD /* ModulbankInformer */,
+				24B3B0502DDA2288008710FD /* ModulbankInformerTests */,
+				24B3B0542DDA228A008710FD /* ModulbankInformerUITests */,
 				2467A52F29C36F76001470A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,56 +102,6 @@
 				2467A54929C36F77001470A3 /* ModulbankInformerUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2467A53029C36F76001470A3 /* ModulbankInformer */ = {
-			isa = PBXGroup;
-			children = (
-				2467A56329C380DB001470A3 /* Info.plist */,
-				2467A55E29C37125001470A3 /* Models */,
-				2467A53129C36F76001470A3 /* ModulbankInformerApp.swift */,
-				2467A55C29C36F99001470A3 /* APIStore.swift */,
-				240F23E629C46D4200B01778 /* KeyStore.swift */,
-				2467A53329C36F76001470A3 /* ContentView.swift */,
-				2467A53529C36F77001470A3 /* Assets.xcassets */,
-				2467A53A29C36F77001470A3 /* ModulbankInformer.entitlements */,
-				2467A53729C36F77001470A3 /* Preview Content */,
-			);
-			path = ModulbankInformer;
-			sourceTree = "<group>";
-		};
-		2467A53729C36F77001470A3 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				2467A53829C36F77001470A3 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2467A54229C36F77001470A3 /* ModulbankInformerTests */ = {
-			isa = PBXGroup;
-			children = (
-				2467A54329C36F77001470A3 /* ModelsTests.swift */,
-			);
-			path = ModulbankInformerTests;
-			sourceTree = "<group>";
-		};
-		2467A54C29C36F77001470A3 /* ModulbankInformerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2467A54D29C36F77001470A3 /* ModulbankInformerUITests.swift */,
-				2467A54F29C36F77001470A3 /* ModulbankInformerUITestsLaunchTests.swift */,
-			);
-			path = ModulbankInformerUITests;
-			sourceTree = "<group>";
-		};
-		2467A55E29C37125001470A3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2467A55F29C3714A001470A3 /* BankAccount.swift */,
-				2467A56129C377F1001470A3 /* AccountInfo.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +117,8 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
+			fileSystemSynchronizedGroups = (
+				24B3B0442DDA2283008710FD /* ModulbankInformer */,
 			);
 			name = ModulbankInformer;
 			packageProductDependencies = (
@@ -189,6 +141,9 @@
 			dependencies = (
 				2467A54129C36F77001470A3 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				24B3B0502DDA2288008710FD /* ModulbankInformerTests */,
+			);
 			name = ModulbankInformerTests;
 			productName = ModulbankInformerTests;
 			productReference = 2467A53F29C36F77001470A3 /* ModulbankInformerTests.xctest */;
@@ -207,6 +162,9 @@
 			dependencies = (
 				2467A54B29C36F77001470A3 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				24B3B0542DDA228A008710FD /* ModulbankInformerUITests */,
+			);
 			name = ModulbankInformerUITests;
 			productName = ModulbankInformerUITests;
 			productReference = 2467A54929C36F77001470A3 /* ModulbankInformerUITests.xctest */;
@@ -220,7 +178,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					2467A52D29C36F76001470A3 = {
 						CreatedOnToolsVersion = 14.2;
@@ -236,7 +194,6 @@
 				};
 			};
 			buildConfigurationList = 2467A52929C36F76001470A3 /* Build configuration list for PBXProject "ModulbankInformer" */;
-			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -247,6 +204,7 @@
 			packageReferences = (
 				240F23E329C46D2C00B01778 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 2467A52F29C36F76001470A3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,59 +219,36 @@
 /* Begin PBXResourcesBuildPhase section */
 		2467A52C29C36F76001470A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				2467A53929C36F77001470A3 /* Preview Assets.xcassets in Resources */,
-				2467A53629C36F77001470A3 /* Assets.xcassets in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2467A53D29C36F77001470A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2467A54729C36F77001470A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2467A52A29C36F76001470A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				2467A55D29C36F99001470A3 /* APIStore.swift in Sources */,
-				240F23E729C46D4200B01778 /* KeyStore.swift in Sources */,
-				2467A56029C3714A001470A3 /* BankAccount.swift in Sources */,
-				2467A56229C377F1001470A3 /* AccountInfo.swift in Sources */,
-				2467A53429C36F76001470A3 /* ContentView.swift in Sources */,
-				2467A53229C36F76001470A3 /* ModulbankInformerApp.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2467A53B29C36F77001470A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				2467A54429C36F77001470A3 /* ModelsTests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2467A54529C36F77001470A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
-				2467A55029C36F77001470A3 /* ModulbankInformerUITestsLaunchTests.swift in Sources */,
-				2467A54E29C36F77001470A3 /* ModulbankInformerUITests.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -331,7 +266,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2467A55129C36F77001470A3 /* Debug */ = {
+		2467A55129C36F77001470A3 /* Debug configuration for PBXProject "ModulbankInformer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -367,6 +302,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 345VKAJA5N;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -394,7 +330,7 @@
 			};
 			name = Debug;
 		};
-		2467A55229C36F77001470A3 /* Release */ = {
+		2467A55229C36F77001470A3 /* Release configuration for PBXProject "ModulbankInformer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -430,6 +366,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 345VKAJA5N;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -450,7 +387,7 @@
 			};
 			name = Release;
 		};
-		2467A55429C36F77001470A3 /* Debug */ = {
+		2467A55429C36F77001470A3 /* Debug configuration for PBXNativeTarget "ModulbankInformer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -458,10 +395,9 @@
 				CODE_SIGN_ENTITLEMENTS = ModulbankInformer/ModulbankInformer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ModulbankInformer/Preview Content\"";
-				DEVELOPMENT_TEAM = 345VKAJA5N;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -474,15 +410,15 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = me.spaceinbox.ModulbankInformer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
-		2467A55529C36F77001470A3 /* Release */ = {
+		2467A55529C36F77001470A3 /* Release configuration for PBXNativeTarget "ModulbankInformer" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -490,10 +426,9 @@
 				CODE_SIGN_ENTITLEMENTS = ModulbankInformer/ModulbankInformer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"ModulbankInformer/Preview Content\"";
-				DEVELOPMENT_TEAM = 345VKAJA5N;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -506,23 +441,21 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = me.spaceinbox.ModulbankInformer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
-		2467A55729C36F77001470A3 /* Debug */ = {
+		2467A55729C36F77001470A3 /* Debug configuration for PBXNativeTarget "ModulbankInformerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 345VKAJA5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
@@ -534,15 +467,13 @@
 			};
 			name = Debug;
 		};
-		2467A55829C36F77001470A3 /* Release */ = {
+		2467A55829C36F77001470A3 /* Release configuration for PBXNativeTarget "ModulbankInformerTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 345VKAJA5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
@@ -554,14 +485,12 @@
 			};
 			name = Release;
 		};
-		2467A55A29C36F77001470A3 /* Debug */ = {
+		2467A55A29C36F77001470A3 /* Debug configuration for PBXNativeTarget "ModulbankInformerUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 345VKAJA5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.spaceinbox.ModulbankInformerUITests;
@@ -572,14 +501,12 @@
 			};
 			name = Debug;
 		};
-		2467A55B29C36F77001470A3 /* Release */ = {
+		2467A55B29C36F77001470A3 /* Release configuration for PBXNativeTarget "ModulbankInformerUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 345VKAJA5N;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.spaceinbox.ModulbankInformerUITests;
@@ -596,37 +523,33 @@
 		2467A52929C36F76001470A3 /* Build configuration list for PBXProject "ModulbankInformer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2467A55129C36F77001470A3 /* Debug */,
-				2467A55229C36F77001470A3 /* Release */,
+				2467A55129C36F77001470A3 /* Debug configuration for PBXProject "ModulbankInformer" */,
+				2467A55229C36F77001470A3 /* Release configuration for PBXProject "ModulbankInformer" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		2467A55329C36F77001470A3 /* Build configuration list for PBXNativeTarget "ModulbankInformer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2467A55429C36F77001470A3 /* Debug */,
-				2467A55529C36F77001470A3 /* Release */,
+				2467A55429C36F77001470A3 /* Debug configuration for PBXNativeTarget "ModulbankInformer" */,
+				2467A55529C36F77001470A3 /* Release configuration for PBXNativeTarget "ModulbankInformer" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		2467A55629C36F77001470A3 /* Build configuration list for PBXNativeTarget "ModulbankInformerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2467A55729C36F77001470A3 /* Debug */,
-				2467A55829C36F77001470A3 /* Release */,
+				2467A55729C36F77001470A3 /* Debug configuration for PBXNativeTarget "ModulbankInformerTests" */,
+				2467A55829C36F77001470A3 /* Release configuration for PBXNativeTarget "ModulbankInformerTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		2467A55929C36F77001470A3 /* Build configuration list for PBXNativeTarget "ModulbankInformerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2467A55A29C36F77001470A3 /* Debug */,
-				2467A55B29C36F77001470A3 /* Release */,
+				2467A55A29C36F77001470A3 /* Debug configuration for PBXNativeTarget "ModulbankInformerUITests" */,
+				2467A55B29C36F77001470A3 /* Release configuration for PBXNativeTarget "ModulbankInformerUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
