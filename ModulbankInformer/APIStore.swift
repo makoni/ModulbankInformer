@@ -82,10 +82,29 @@ final class APIStore: ObservableObject {
 
         if ProcessInfo.processInfo.environment["IS_DEMO"] == "true" {
             response = response.map { account in
+                let bankAccounts = account.bankAccounts.map { bankAccount in
+                    return BankAccount(
+                        accountName: bankAccount.accountName,
+                        balance: Double.random(in: 1...30000),
+                        bankBic: bankAccount.bankBic,
+                        bankInn: bankAccount.bankInn,
+                        bankKpp: bankAccount.bankKpp,
+                        bankCorrespondentAccount: bankAccount.bankCorrespondentAccount,
+                        bankName: bankAccount.bankName,
+                        beginDate: bankAccount.beginDate,
+                        category: bankAccount.category,
+                        currency: bankAccount.currency,
+                        accountId: bankAccount.accountId,
+                        number: generateRandomAccountNumber(),
+                        transitAccountId: bankAccount.transitAccountId,
+                        status: bankAccount.status
+                    )
+                }
+
                 return AccountInfo(
                     companyId: account.companyId,
                     companyName: "ИП Иванов Иван Иванович",
-                    bankAccounts: account.bankAccounts,
+                    bankAccounts: bankAccounts,
                     registrationCompleted: account.registrationCompleted,
                     Inn: account.Inn,
                     Kpp: account.Kpp,
@@ -108,4 +127,14 @@ final class APIStore: ObservableObject {
 		}
 		return request
 	}
+
+    private func generateRandomAccountNumber() -> String {
+        let randomNumber = Double.random(in: 10801000000000000000...10802000000000000000)
+
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 0
+        let number = NSNumber(value: randomNumber)
+
+        return formatter.string(from: number) ?? ""
+    }
 }

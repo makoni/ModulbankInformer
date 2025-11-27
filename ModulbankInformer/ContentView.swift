@@ -118,17 +118,13 @@ struct BankAccountView: View {
 
 	var body: some View {
 		VStack(alignment: .leading) {
-//            Text(self.formatBalance(Double.random(in: 1...30000)))
 			Text(formatBalance(bankAccount.balance))
 				.font(.title)
 
 			Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
-//            let randomStr = generateRandomAccountNumber()
-//            Text("\(bankAccount.accountName ?? "Счёт") \(randomStr)")
 				.font(.caption)
 
 			if transitBankAccount != nil {
-//                let transitBalance = self.formatBalance(Double.random(in: 1...30000))
 				let transitBalance = formatBalance(transitBankAccount!.balance)
 
 				Label {
@@ -139,16 +135,6 @@ struct BankAccountView: View {
 				}
 			}
 		}
-	}
-
-	func generateRandomAccountNumber() -> String {
-		let randomNumber = Double.random(in: 10801000000000000000...10802000000000000000)
-
-		let formatter = NumberFormatter()
-		formatter.maximumFractionDigits = 0
-		let number = NSNumber(value: randomNumber)
-
-		return formatter.string(from: number) ?? ""
 	}
 
 	func formatBalance(_ balance: Double) -> String {
@@ -164,49 +150,48 @@ struct BankAccountView: View {
 	}
 }
 
-let accData = """
-{
-	"companyId": "aa-aa-aa-aa",
-	"companyName": "Индивидуальный предприниматель Иванов Иван Иванович",
-	"bankAccounts": [
-		{
-			 "accountName": "Карточный счёт",
-			 "balance": 4917.7600,
-			 "bankBic": "044525092",
-			 "bankInn": "2204000595",
-			 "bankKpp": "771543001",
-			 "bankCorrespondentAccount": "30101810645250000092",
-			 "bankName": "МОСКОВСКИЙ ФИЛИАЛ АО КБ МОДУЛЬБАНК",
-			 "beginDate": "2021-02-09T00:00:00",
-			 "category": "CheckingAccount",
-			 "currency": "RUR",
-			 "id": "\(NSUUID().uuidString)",
-			 "number": "12345678901234567890",
-			 "status": "New"
-		},
-		{
-		   "accountName": "Депозит",
-		   "balance": 4917.7600,
-		   "bankBic": "044525092",
-		   "bankInn": "2204000595",
-		   "bankKpp": "771543001",
-		   "bankCorrespondentAccount": "30101810645250000092",
-		   "bankName": "МОСКОВСКИЙ ФИЛИАЛ АО КБ МОДУЛЬБАНК",
-		   "beginDate": "2021-02-09T00:00:00",
-		   "category": "CheckingAccount",
-		   "currency": "RUR",
-		   "id": "\(NSUUID().uuidString)",
-		   "number": "12345678901234567890",
-		   "status": "New"
-		}
-	],
-	"registrationCompleted": true
-}
-""".data(using: .utf8)!
-
-let account = try! JSONDecoder().decode(AccountInfo.self, from: accData)
-
 #Preview("Preview") {
+    let accData = """
+    {
+        "companyId": "aa-aa-aa-aa",
+        "companyName": "Индивидуальный предприниматель Иванов Иван Иванович",
+        "bankAccounts": [
+            {
+                 "accountName": "Карточный счёт",
+                 "balance": 4917.7600,
+                 "bankBic": "044525092",
+                 "bankInn": "2204000595",
+                 "bankKpp": "771543001",
+                 "bankCorrespondentAccount": "30101810645250000092",
+                 "bankName": "МОСКОВСКИЙ ФИЛИАЛ АО КБ МОДУЛЬБАНК",
+                 "beginDate": "2021-02-09T00:00:00",
+                 "category": "CheckingAccount",
+                 "currency": "RUR",
+                 "id": "\(NSUUID().uuidString)",
+                 "number": "12345678901234567890",
+                 "status": "New"
+            },
+            {
+               "accountName": "Депозит",
+               "balance": 4917.7600,
+               "bankBic": "044525092",
+               "bankInn": "2204000595",
+               "bankKpp": "771543001",
+               "bankCorrespondentAccount": "30101810645250000092",
+               "bankName": "МОСКОВСКИЙ ФИЛИАЛ АО КБ МОДУЛЬБАНК",
+               "beginDate": "2021-02-09T00:00:00",
+               "category": "CheckingAccount",
+               "currency": "RUR",
+               "id": "\(NSUUID().uuidString)",
+               "number": "12345678901234567890",
+               "status": "New"
+            }
+        ],
+        "registrationCompleted": true
+    }
+    """.data(using: .utf8)!
+    let account = try! JSONDecoder().decode(AccountInfo.self, from: accData)
+
 	AccountsListView(accounts: [account])
 		.padding()
 }

@@ -8,6 +8,23 @@
 import Foundation
 
 struct BankAccount: Codable, Identifiable {
+    internal init(accountName: String? = nil, balance: Double, bankBic: String? = nil, bankInn: String? = nil, bankKpp: String? = nil, bankCorrespondentAccount: String? = nil, bankName: String? = nil, beginDate: Date? = nil, category: BankAccount.Category? = nil, currency: BankAccount.Currency? = nil, accountId: String, number: String? = nil, transitAccountId: String? = nil, status: BankAccount.Status? = nil) {
+        self.accountName = accountName
+        self.balance = balance
+        self.bankBic = bankBic
+        self.bankInn = bankInn
+        self.bankKpp = bankKpp
+        self.bankCorrespondentAccount = bankCorrespondentAccount
+        self.bankName = bankName
+        self.beginDate = beginDate
+        self.category = category
+        self.currency = currency
+        self.accountId = accountId
+        self.number = number
+        self.transitAccountId = transitAccountId
+        self.status = status
+    }
+    
 	enum Category: String, Codable {
 		case checkingAccount = "CheckingAccount"
 		case depositAccount = "DepositAccount"
