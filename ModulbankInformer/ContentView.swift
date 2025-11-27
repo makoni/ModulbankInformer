@@ -10,35 +10,6 @@ import OSLog
 
 private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "ContentView")
 
-struct AccountsListView: View {
-	@AppStorage("hideZeros") private var hideZeros = false
-	var accounts:  [AccountInfo]
-
-	var body: some View {
-		ForEach(accounts) { account in
-			Form {
-				Label {
-					Text("\(account.shortenCompanyName)")
-				} icon: { Image(systemName: "signature") }
-					.padding(.bottom)
-
-
-				VStack(alignment: .leading, spacing: 8) {
-					ForEach(account.nonTransitAccounts(hideZeros: hideZeros)) { bankAccount in
-						BankAccountView(
-							bankAccount: bankAccount,
-							transitBankAccount: account.bankAccounts.first(where: { $0.accountId == bankAccount.transitAccountId })
-						)
-					}
-				}
-
-				Toggle("Скрыть с нулевым балансом", isOn: $hideZeros)
-					.padding([.top, .bottom])
-			}
-		}
-	}
-}
-
 struct ContentView: View {
 	@Environment(\.openURL) private var openURL
 
@@ -108,45 +79,6 @@ struct ContentView: View {
 		await MainActor.run {
 			isLoading = false
 		}
-	}
-}
-
-
-struct BankAccountView: View {
-	@State var bankAccount: BankAccount
-	@State var transitBankAccount: BankAccount?
-
-	var body: some View {
-		VStack(alignment: .leading) {
-			Text(formatBalance(bankAccount.balance))
-				.font(.title)
-
-			Text("\(bankAccount.accountName ?? "Счёт") \(bankAccount.number ?? "")")
-				.font(.caption)
-
-			if transitBankAccount != nil {
-				let transitBalance = formatBalance(transitBankAccount!.balance)
-
-				Label {
-					Text("На транзитном счёте: \(transitBalance)")
-						.font(.caption)
-				} icon: {
-					Image(systemName: "arrow.turn.down.right")
-				}
-			}
-		}
-	}
-
-	func formatBalance(_ balance: Double) -> String {
-		let formatter = NumberFormatter()
-		formatter.numberStyle = .currency
-		formatter.currencyCode = bankAccount.currency?.rawValue
-		formatter.currencySymbol = bankAccount.currency?.currencySymbol
-		formatter.maximumFractionDigits = 2
-
-		let number = NSNumber(value: balance)
-
-		return formatter.string(from: number) ?? "\(balance)"
 	}
 }
 
