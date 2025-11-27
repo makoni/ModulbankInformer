@@ -78,7 +78,22 @@ final class APIStore: ObservableObject {
 		logger.info("Getting data")
 		let request = makeRequest(withMethod: .POST, fromURL: url)
 		let (data, _) = try await URLSession.shared.data(for: request)
-		let response = try decoder.decode([AccountInfo].self, from: data)
+		var response = try decoder.decode([AccountInfo].self, from: data)
+
+        if ProcessInfo.processInfo.environment["IS_DEMO"] == "true" {
+            response = response.map { account in
+                return AccountInfo(
+                    companyId: account.companyId,
+                    companyName: "ИП Иванов Иван Иванович",
+                    bankAccounts: account.bankAccounts,
+                    registrationCompleted: account.registrationCompleted,
+                    Inn: account.Inn,
+                    Kpp: account.Kpp,
+                    Ogrn: account.Ogrn
+                )
+            }
+        }
+
 		await MainActor.run {
 			self.accounts = response
 		}

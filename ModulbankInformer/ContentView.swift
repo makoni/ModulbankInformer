@@ -19,7 +19,6 @@ struct AccountsListView: View {
 			Form {
 				Label {
 					Text("\(account.shortenCompanyName)")
-//					Text("ИП Иванов Иван Иванович")
 				} icon: { Image(systemName: "signature") }
 					.padding(.bottom)
 

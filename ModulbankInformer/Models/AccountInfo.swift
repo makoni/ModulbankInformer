@@ -8,6 +8,16 @@
 import Foundation
 
 struct AccountInfo: Codable, Identifiable {
+    internal init(companyId: String, companyName: String? = nil, bankAccounts: [BankAccount], registrationCompleted: Bool, Inn: String? = nil, Kpp: String? = nil, Ogrn: String? = nil) {
+        self.companyId = companyId
+        self.companyName = companyName
+        self.bankAccounts = bankAccounts
+        self.registrationCompleted = registrationCompleted
+        self.Inn = Inn
+        self.Kpp = Kpp
+        self.Ogrn = Ogrn
+    }
+    
 	let id = NSUUID()
 
 	let companyId: String
